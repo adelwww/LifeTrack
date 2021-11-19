@@ -3,13 +3,33 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/LifeTrack/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2703125" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/LifeTrack/app/src/main/res/drawable/dialog_oval.xml" value="0.2703125" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/LifeTrack/app/src/main/res/drawable/dots_oval.xml" value="0.152" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/LifeTrack/app/src/main/res/drawable/fond_board.xml" value="0.2703125" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/LifeTrack/app/src/main/res/drawable/ic_add.xml" value="0.2703125" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/LifeTrack/app/src/main/res/drawable/ic_arrow_down.xml" value="0.2703125" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/LifeTrack/app/src/main/res/drawable/ic_date.xml" value="0.2703125" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/LifeTrack/app/src/main/res/drawable/ic_emoticon.xml" value="0.2703125" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/LifeTrack/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2703125" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/LifeTrack/app/src/main/res/drawable/indicator_oval.xml" value="0.2703125" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/LifeTrack/app/src/main/res/drawable/oval_btn.xml" value="0.2703125" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/LifeTrack/app/src/main/res/drawable/rectangle_background.xml" value="0.72" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/LifeTrack/app/src/main/res/drawable/rectangle_background_btn.xml" value="0.2703125" />
-        <entry key="..\:/Users/Admin/AndroidStudioProjects/LifeTrack/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/Admin/AndroidStudioProjects/LifeTrack/app/src/main/res/layout/fragment_create_task.xml" value="0.4" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/LifeTrack/app/src/main/res/drawable/string_dot.xml" value="0.2703125" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/LifeTrack/app/src/main/res/drawable/tab_indicator_default.xml" value="0.264" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/LifeTrack/app/src/main/res/drawable/tab_indicator_selected.xml" value="0.2703125" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/LifeTrack/app/src/main/res/drawable/tab_selector.xml" value="0.2703125" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/LifeTrack/app/src/main/res/layout/activity_main.xml" value="0.22131147540983606" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/LifeTrack/app/src/main/res/layout/dialog_repeat.xml" value="0.264" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/LifeTrack/app/src/main/res/layout/dots_indicator.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/LifeTrack/app/src/main/res/layout/dots_indicators.xml" value="0.2" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/LifeTrack/app/src/main/res/layout/fragment_board.xml" value="0.5164021164021164" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/LifeTrack/app/src/main/res/layout/fragment_create_task.xml" value="0.536" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/LifeTrack/app/src/main/res/layout/fragment_home.xml" value="0.2" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/LifeTrack/app/src/main/res/layout/fragment_on_board.xml" value="0.264" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/LifeTrack/app/src/main/res/layout/item_task.xml" value="0.4" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/LifeTrack/app/src/main/res/layout/pager_item.xml" value="0.25416666666666665" />
       </map>
     </option>
   </component>

@@ -32,14 +32,15 @@ public class HomeFragment extends Fragment {
         binding.addFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Navigation.findNavController(requireView()).navigate(R.id.createTaskFragment);
+                CreateTaskFragment createTaskFragment = new CreateTaskFragment();
+                createTaskFragment.show(requireActivity().getSupportFragmentManager(), "ololo");
             }
         });
     }
 
     private void getData() {
-        if (getArguments() != null){
-            Log.e("tag", "getData");
+        if (getArguments() != null) {
+
         }
     }
 }

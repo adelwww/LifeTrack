@@ -1,5 +1,6 @@
 package com.example.lifetrack.fragment;
 
+import android.app.DatePickerDialog;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -12,39 +13,67 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.DatePicker;
 
 import com.example.lifetrack.R;
 import com.example.lifetrack.databinding.FragmentCreateTaskBinding;
+import com.example.lifetrack.model.TaskModel;
 import com.example.lifetrack.utils.Constants;
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
+
+import java.util.Calendar;
 
 
-public class CreateTaskFragment extends Fragment {
+public class CreateTaskFragment extends BottomSheetDialogFragment implements DatePickerDialog.OnDateSetListener {
     FragmentCreateTaskBinding binding;
     String userTask;
-    NavController navController;
+    private int startYear;
+    private int startMonth;
+    private int startDay;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-       binding=FragmentCreateTaskBinding.inflate(getLayoutInflater());
+        binding = FragmentCreateTaskBinding.inflate(getLayoutInflater());
         return binding.getRoot();
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
+        initClickers();
+    }
+
+    private void initClickers() {
         binding.addBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                userTask = binding.taskEd.getText().toString();
-//                navController.navigate(R.id.homeFragment);
-                Navigation.findNavController(requireView()).navigate(R.id.createTaskFragment);
-                Bundle bundle = new Bundle();
-                bundle.putString(Constants.USER_TASK,userTask);
-                Navigation.findNavController(requireView()).navigate(R.id.homeFragment,bundle);
-                Log.e("tag", "setData");
+                passModelToHomeFragment();
             }
         });
+        binding.dateTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showDialog();
+            }
+        });
+    }
+
+    private void showDialog() {
+
+        DatePickerDialog datePickerDialog = new DatePickerDialog(
+                requireActivity(), this, startYear, startMonth, startDay);
+        datePickerDialog.show();
+
+    }
+
+    private void passModelToHomeFragment() {
+        userTask = binding.taskEd.getText().toString();
+//        TaskModel taskModel = new TaskModel(userTask,);
+    }
+
+    @Override
+    public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
+
     }
 }
