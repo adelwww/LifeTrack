@@ -1,6 +1,8 @@
 package com.example.lifetrack.fragment;
 
+import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -13,7 +15,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.DatePicker;
+import android.widget.RadioButton;
 
 import com.example.lifetrack.R;
 import com.example.lifetrack.databinding.FragmentCreateTaskBinding;
@@ -57,10 +61,69 @@ public class CreateTaskFragment extends BottomSheetDialogFragment implements Dat
                 showDialog();
             }
         });
+        binding.repeatTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showRepeatDialog();
+            }
+        });
+    }
+
+    private void showRepeatDialog() {
+        LayoutInflater inflater = LayoutInflater.from(requireContext());
+        @SuppressLint("InflateParams") View view = inflater.inflate(R.layout.dialog_repeat, null);
+        Dialog alertDialog = new Dialog(requireContext());
+        alertDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        alertDialog.setContentView(view);
+        alertDialog.show();
+        RadioButton neverBtn = alertDialog.findViewById(R.id.never);
+        neverBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                binding.repeatTv.setText(neverBtn.getText().toString());
+                alertDialog.dismiss();
+
+            }
+        });
+        RadioButton everyDay = alertDialog.findViewById(R.id.every_day);
+        everyDay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                binding.repeatTv.setText(everyDay.getText().toString());
+                alertDialog.dismiss();
+            }
+        });
+        RadioButton everyWeek = alertDialog.findViewById(R.id.every_week);
+        everyWeek.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                binding.repeatTv.setText(everyWeek.getText().toString());
+                alertDialog.dismiss();
+            }
+        });
+        RadioButton everyMonth = alertDialog.findViewById(R.id.every_month);
+        everyMonth.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                binding.repeatTv.setText(everyMonth.getText().toString());
+                alertDialog.dismiss();
+            }
+        });
+        RadioButton everyYear = alertDialog.findViewById(R.id.every_year);
+        everyYear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                binding.repeatTv.setText(everyYear.getText().toString());
+                alertDialog.dismiss();
+            }
+        });
     }
 
     private void showDialog() {
-
+        Calendar calendar = Calendar.getInstance();
+        startYear = calendar.get(Calendar.YEAR);
+        startMonth = calendar.get(Calendar.MONTH);
+        startDay = calendar.get(Calendar.DAY_OF_MONTH);
         DatePickerDialog datePickerDialog = new DatePickerDialog(
                 requireActivity(), this, startYear, startMonth, startDay);
         datePickerDialog.show();
@@ -73,7 +136,7 @@ public class CreateTaskFragment extends BottomSheetDialogFragment implements Dat
     }
 
     @Override
-    public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
-
+    public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+        binding.dateTv.setText(day+"."+ month+"."+year);
     }
 }

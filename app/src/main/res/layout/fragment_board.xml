@@ -6,8 +6,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".bord.BoardFragment">
 
-
-
   <View
       android:id="@+id/fond_view"
       android:layout_width="match_parent"
