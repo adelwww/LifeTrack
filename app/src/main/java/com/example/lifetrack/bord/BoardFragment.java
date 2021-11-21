@@ -1,6 +1,5 @@
 package com.example.lifetrack.bord;
 
-import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -43,12 +42,15 @@ public class BoardFragment extends Fragment {
             int position = getArguments().getInt(Constants.FRAGMENT_POSITION);
             switch (position){
                 case 0:
+                    binding.boardImage.setImageResource(R.drawable.image_board1);
                     binding.description.setText("Здравствуйте!" + "Спасибо,что скачали наше приложение!!");
                     break;
                 case 1:
+                    binding.boardImage.setImageResource(R.drawable.image_board2);
                     binding.description.setText("В этом приложении вы сможете записывать ваши дела,чтобы их не забыть");
                     break;
                 case 2:
+                    binding.boardImage.setImageResource(R.drawable.image_board3);
                     binding.description.setText("Желаем вам удачи!");
                     break;
             }

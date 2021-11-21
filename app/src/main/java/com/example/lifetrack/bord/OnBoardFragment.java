@@ -44,7 +44,7 @@ public class OnBoardFragment extends Fragment {
         if (isShow){
             Navigation.findNavController(requireView()).navigate(R.id.homeFragment);
         }
-    }
+   }
 
     private void openHomeFragment() {
         binding.continueBtn.setOnClickListener(new View.OnClickListener() {
