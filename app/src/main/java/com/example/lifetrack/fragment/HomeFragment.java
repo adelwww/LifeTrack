@@ -1,9 +1,11 @@
 package com.example.lifetrack.fragment;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
@@ -13,9 +15,14 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.lifetrack.R;
+import com.example.lifetrack.adapter.TaskAdapter;
 import com.example.lifetrack.databinding.FragmentHomeBinding;
+import com.example.lifetrack.model.TaskModel;
+import com.example.lifetrack.utils.App;
 
-public class HomeFragment extends Fragment {
+import java.util.ArrayList;
+
+public class HomeFragment extends Fragment implements TaskAdapter.Listener{
     FragmentHomeBinding binding;
 
     @Override
@@ -28,19 +35,36 @@ public class HomeFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        getData();
-        binding.addFab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                CreateTaskFragment createTaskFragment = new CreateTaskFragment();
-                createTaskFragment.show(requireActivity().getSupportFragmentManager(), "ololo");
-            }
+        initRecycler();
+        binding.addFab.setOnClickListener(view1 -> {
+            CreateTaskFragment createTaskFragment = new CreateTaskFragment();
+            createTaskFragment.show(requireActivity().getSupportFragmentManager(), "ololo");
         });
     }
 
-    private void getData() {
-        if (getArguments() != null) {
-
-        }
+    private void initRecycler() {
+        App.initDatabase(getContext()).taskDao().getAll().observe(getViewLifecycleOwner(), taskModels -> {
+                TaskAdapter taskAdapter = new TaskAdapter((ArrayList<TaskModel>) taskModels,this);
+                binding.taskRecycler.setAdapter(taskAdapter);
+        });
     }
+
+    @Override
+    public void itemLongClick(TaskModel model) {
+        new AlertDialog.Builder(requireContext()).setTitle("Предупреждаю!").setMessage("Вы действительно хотите удалить эту запись?")
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        App.getInstance().getDatabase().taskDao().delete(model);
+                    }
+                })
+                .setNegativeButton(android.R.string.no, null)
+                .show();
+
+    }
+
+    @Override
+    public void itemClick(TaskModel model) {
+
+    }
+
 }

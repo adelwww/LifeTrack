@@ -22,6 +22,7 @@ import android.widget.RadioButton;
 import com.example.lifetrack.R;
 import com.example.lifetrack.databinding.FragmentCreateTaskBinding;
 import com.example.lifetrack.model.TaskModel;
+import com.example.lifetrack.utils.App;
 import com.example.lifetrack.utils.Constants;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
@@ -31,6 +32,8 @@ import java.util.Calendar;
 public class CreateTaskFragment extends BottomSheetDialogFragment implements DatePickerDialog.OnDateSetListener {
     FragmentCreateTaskBinding binding;
     String userTask;
+    String deadline;
+    String repeatCount;
     private int startYear;
     private int startMonth;
     private int startDay;
@@ -52,7 +55,7 @@ public class CreateTaskFragment extends BottomSheetDialogFragment implements Dat
         binding.addBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                passModelToHomeFragment();
+                insertTask();
             }
         });
         binding.dateTv.setOnClickListener(new View.OnClickListener() {
@@ -80,6 +83,7 @@ public class CreateTaskFragment extends BottomSheetDialogFragment implements Dat
         neverBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                repeatCount = neverBtn.getText().toString();
                 binding.repeatTv.setText(neverBtn.getText().toString());
                 alertDialog.dismiss();
 
@@ -89,6 +93,7 @@ public class CreateTaskFragment extends BottomSheetDialogFragment implements Dat
         everyDay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                repeatCount = everyDay.getText().toString();
                 binding.repeatTv.setText(everyDay.getText().toString());
                 alertDialog.dismiss();
             }
@@ -97,6 +102,7 @@ public class CreateTaskFragment extends BottomSheetDialogFragment implements Dat
         everyWeek.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                repeatCount = everyWeek.getText().toString();
                 binding.repeatTv.setText(everyWeek.getText().toString());
                 alertDialog.dismiss();
             }
@@ -105,6 +111,7 @@ public class CreateTaskFragment extends BottomSheetDialogFragment implements Dat
         everyMonth.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                repeatCount = everyMonth.getText().toString();
                 binding.repeatTv.setText(everyMonth.getText().toString());
                 alertDialog.dismiss();
             }
@@ -113,6 +120,7 @@ public class CreateTaskFragment extends BottomSheetDialogFragment implements Dat
         everyYear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                repeatCount = everyYear.getText().toString();
                 binding.repeatTv.setText(everyYear.getText().toString());
                 alertDialog.dismiss();
             }
@@ -130,13 +138,17 @@ public class CreateTaskFragment extends BottomSheetDialogFragment implements Dat
 
     }
 
-    private void passModelToHomeFragment() {
+    private void insertTask() {
         userTask = binding.taskEd.getText().toString();
-//        TaskModel taskModel = new TaskModel(userTask,);
+        TaskModel taskModel = new TaskModel(userTask, deadline, repeatCount);
+        App.initDatabase(getContext()).taskDao().insert(taskModel);
+        dismiss();
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-        binding.dateTv.setText(day+"."+ month+"."+year);
+        deadline = day + "." + month + "." + year;
+        binding.dateTv.setText(deadline);
     }
 }

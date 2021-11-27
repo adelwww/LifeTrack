@@ -1,6 +1,13 @@
 package com.example.lifetrack.model;
 
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+@Entity
 public class TaskModel {
+    @PrimaryKey(autoGenerate = true)
+     public long id;
+
     String task;
     String deadline;
     String repeatCount;
@@ -15,23 +22,13 @@ public class TaskModel {
         return task;
     }
 
-    public void setTask(String task) {
-        this.task = task;
-    }
 
     public String getDeadline() {
         return deadline;
     }
 
-    public void setDeadline(String deadline) {
-        this.deadline = deadline;
-    }
 
     public String getRepeatCount() {
         return repeatCount;
-    }
-
-    public void setRepeatCount(String repeatCount) {
-        this.repeatCount = repeatCount;
     }
 }

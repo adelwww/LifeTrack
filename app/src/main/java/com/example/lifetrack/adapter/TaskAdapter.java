@@ -1,5 +1,7 @@
 package com.example.lifetrack.adapter;
 
+import android.location.GnssAntennaInfo;
+import android.net.sip.SipSession;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +18,12 @@ import java.util.ArrayList;
 public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder> {
     ArrayList<TaskModel> list;
     ItemTaskBinding binding;
+    Listener listener;
+
+    public TaskAdapter(ArrayList<TaskModel> list, Listener listener) {
+        this.list = list;
+        this.listener = listener;
+    }
 
     @NonNull
     @Override
@@ -35,7 +43,8 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
     }
 
     public class TaskViewHolder extends RecyclerView.ViewHolder {
-        public TaskViewHolder(@NonNull ItemTaskBinding itemView) {
+
+        public TaskViewHolder(@NonNull ItemTaskBinding binding) {
             super(binding.getRoot());
         }
 
@@ -43,7 +52,27 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
             binding.taskTv.setText(model.getTask());
             binding.deadlineTv.setText(model.getDeadline());
             binding.repeatTv.setText(model.getRepeatCount());
+
+            itemView.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View view) {
+                    listener.itemLongClick(model);
+                    return true;
+                }
+            });
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    listener.itemClick(model);
+                }
+            });
         }
     }
+
+    public interface Listener {
+        void itemLongClick(TaskModel taskModel);
+        void itemClick(TaskModel model);
+    }
 }
+
 
