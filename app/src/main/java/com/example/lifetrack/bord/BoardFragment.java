@@ -10,6 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.example.lifetrack.R;
 import com.example.lifetrack.databinding.FragmentBoardBinding;
 import com.example.lifetrack.utils.Constants;
@@ -33,25 +35,21 @@ public class BoardFragment extends Fragment {
 
     }
 
-
-
-
-
     private void getPositionFromAdepter() {
         if (getArguments() != null){
             int position = getArguments().getInt(Constants.FRAGMENT_POSITION);
             switch (position){
                 case 0:
-                    binding.boardImage.setImageResource(R.drawable.image_board1);
-                    binding.description.setText("Здравствуйте!" + "Спасибо,что скачали наше приложение!!");
+                    binding.description.setText("Не теряйте время зря, вспоминая о том,что хотели сделать");
+                    binding.boardImage.setAnimation("time.json");
                     break;
                 case 1:
-                    binding.boardImage.setImageResource(R.drawable.image_board2);
-                    binding.description.setText("В этом приложении вы сможете записывать ваши дела,чтобы их не забыть");
+                    binding.description.setText("Это приложение поможет вам!Записывайте ваши дела,планы,идеи чтобы их не забыть");
+                    binding.boardImage.setAnimation("task.json");
                     break;
                 case 2:
-                    binding.boardImage.setImageResource(R.drawable.image_board3);
-                    binding.description.setText("Желаем вам удачи!");
+                    binding.description.setText("Надеюсь мы вам поможем!Желаем удачи");
+                    binding.boardImage.setAnimation("ideas.json");
                     break;
             }
         }

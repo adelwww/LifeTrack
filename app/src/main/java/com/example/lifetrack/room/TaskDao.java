@@ -5,6 +5,7 @@ import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
+import androidx.room.Update;
 
 import com.example.lifetrack.model.TaskModel;
 
@@ -21,4 +22,7 @@ public interface TaskDao {
 
     @Delete
     void delete(TaskModel model);
+
+    @Update
+    void update(TaskModel model);
 }

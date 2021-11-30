@@ -19,10 +19,11 @@ import com.example.lifetrack.adapter.TaskAdapter;
 import com.example.lifetrack.databinding.FragmentHomeBinding;
 import com.example.lifetrack.model.TaskModel;
 import com.example.lifetrack.utils.App;
+import com.example.lifetrack.utils.Constants;
 
 import java.util.ArrayList;
 
-public class HomeFragment extends Fragment implements TaskAdapter.Listener{
+public class HomeFragment extends Fragment implements TaskAdapter.Listener {
     FragmentHomeBinding binding;
 
     @Override
@@ -44,14 +45,14 @@ public class HomeFragment extends Fragment implements TaskAdapter.Listener{
 
     private void initRecycler() {
         App.initDatabase(getContext()).taskDao().getAll().observe(getViewLifecycleOwner(), taskModels -> {
-                TaskAdapter taskAdapter = new TaskAdapter((ArrayList<TaskModel>) taskModels,this);
-                binding.taskRecycler.setAdapter(taskAdapter);
+            TaskAdapter taskAdapter = new TaskAdapter((ArrayList<TaskModel>) taskModels, this);
+            binding.taskRecycler.setAdapter(taskAdapter);
         });
     }
 
     @Override
     public void itemLongClick(TaskModel model) {
-        new AlertDialog.Builder(requireContext()).setTitle("Предупреждаю!").setMessage("Вы действительно хотите удалить эту запись?")
+        new AlertDialog.Builder(requireContext()).setTitle("Предупреждение!").setMessage("Вы действительно хотите удалить эту запись?")
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         App.getInstance().getDatabase().taskDao().delete(model);
@@ -64,7 +65,11 @@ public class HomeFragment extends Fragment implements TaskAdapter.Listener{
 
     @Override
     public void itemClick(TaskModel model) {
-
+        CreateTaskFragment createTaskFragment = new CreateTaskFragment();
+        Bundle bundle = new Bundle();
+        bundle.putSerializable(Constants.UPDATE_MODEL, model);
+        createTaskFragment.setArguments(bundle);
+        createTaskFragment.show(requireActivity().getSupportFragmentManager(), Constants.UPDATE);
     }
 
 }

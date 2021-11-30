@@ -49,13 +49,32 @@ public class CreateTaskFragment extends BottomSheetDialogFragment implements Dat
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         initClickers();
+        fillDialog();
+    }
+
+    private void fillDialog() {
+        if (getTag().equals(Constants.UPDATE)) {
+            TaskModel taskModel = (TaskModel) getArguments().getSerializable(Constants.UPDATE_MODEL);
+
+            deadline = taskModel.getDeadline();
+            userTask = taskModel.getTask();
+            repeatCount = taskModel.getRepeatCount();
+
+            binding.taskEd.setText(userTask);
+            binding.dateTv.setText(deadline);
+            binding.repeatTv.setText(repeatCount);
+        }
     }
 
     private void initClickers() {
         binding.addBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                insertTask();
+                if (getTag().equals(Constants.UPDATE)){
+                    updateTask();
+                }else {
+                    insertTask();
+                }
             }
         });
         binding.dateTv.setOnClickListener(new View.OnClickListener() {
@@ -70,6 +89,17 @@ public class CreateTaskFragment extends BottomSheetDialogFragment implements Dat
                 showRepeatDialog();
             }
         });
+    }
+
+    private void updateTask() {
+        TaskModel taskModel = (TaskModel) getArguments().getSerializable(Constants.UPDATE_MODEL);
+        deadline = binding.dateTv.getText().toString();
+        userTask = binding.taskEd.getText().toString();
+        repeatCount = binding.repeatTv.getText().toString();
+        TaskModel updateModel = new TaskModel(userTask, deadline, repeatCount);
+        updateModel.setId(taskModel.getId());
+        App.getInstance().getDatabase().taskDao().update(updateModel);
+        dismiss();
     }
 
     private void showRepeatDialog() {

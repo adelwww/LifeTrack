@@ -41,9 +41,9 @@ public class OnBoardFragment extends Fragment {
     private void isOpenHome() {
         SharedPreferences  sharedPreferences = requireActivity().getSharedPreferences(Constants.BOARD_PREF,Context.MODE_PRIVATE);
         boolean isShow = sharedPreferences.getBoolean(Constants.IS_SHOW_BOARD,false);
-        if (isShow){
-            Navigation.findNavController(requireView()).navigate(R.id.homeFragment);
-        }
+//        if (isShow){
+//            Navigation.findNavController(requireView()).navigate(R.id.homeFragment);
+//        }
    }
 
     private void openHomeFragment() {

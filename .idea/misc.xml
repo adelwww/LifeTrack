@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Admin/AndroidStudioProjects/LifeTrack/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2703125" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/LifeTrack/app/src/main/res/drawable-v24/oval_btn_red.xml" value="0.2703125" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/LifeTrack/app/src/main/res/drawable/dialog_oval.xml" value="0.2703125" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/LifeTrack/app/src/main/res/drawable/dots_oval.xml" value="0.152" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/LifeTrack/app/src/main/res/drawable/fond_board.xml" value="0.2703125" />
@@ -24,10 +25,13 @@
         <entry key="..\:/Users/Admin/AndroidStudioProjects/LifeTrack/app/src/main/res/layout/dialog_repeat.xml" value="0.264" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/LifeTrack/app/src/main/res/layout/dots_indicator.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/LifeTrack/app/src/main/res/layout/dots_indicators.xml" value="0.2" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/LifeTrack/app/src/main/res/layout/fragment_auth.xml" value="0.264" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/LifeTrack/app/src/main/res/layout/fragment_board.xml" value="0.264" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/LifeTrack/app/src/main/res/layout/fragment_create_task.xml" value="0.536" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/LifeTrack/app/src/main/res/layout/fragment_get_start.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/LifeTrack/app/src/main/res/layout/fragment_home.xml" value="0.2" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/LifeTrack/app/src/main/res/layout/fragment_on_board.xml" value="0.264" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/LifeTrack/app/src/main/res/layout/fragment_sign_up_.xml" value="0.24010416666666667" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/LifeTrack/app/src/main/res/layout/item_task.xml" value="0.4" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/LifeTrack/app/src/main/res/layout/pager_item.xml" value="0.25416666666666665" />
       </map>

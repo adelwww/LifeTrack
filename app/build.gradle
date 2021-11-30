@@ -58,6 +58,7 @@ dependencies {
     // lottie animation
     implementation 'com.airbnb.android:lottie:4.2.1'
 
+    //yoyoanim
     implementation 'com.daimajia.androidanimations:library:2.4@aar'
 
 
