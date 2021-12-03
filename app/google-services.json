@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "405583474606-kb1710i2anvg0rhp70fbbdhib08kt5qg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.lifetrack",
+            "certificate_hash": "d7297f4a76331c1462c152bb3b04d43f5e3feacd"
+          }
+        },
+        {
           "client_id": "405583474606-5mr01vp65uhk6pcgmocidvasceltgc07.apps.googleusercontent.com",
           "client_type": 3
         }

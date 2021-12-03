@@ -8,4 +8,6 @@ public class Constants {
     public static final String MODEL = "model";
     public static final String UPDATE_MODEL = "update_model";
     public static final String UPDATE = "update";
+    public static final String CURRENT_DAY="currentDay";
+
 }

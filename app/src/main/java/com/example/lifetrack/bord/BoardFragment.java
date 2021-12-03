@@ -10,8 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.daimajia.androidanimations.library.Techniques;
-import com.daimajia.androidanimations.library.YoYo;
+
 import com.example.lifetrack.R;
 import com.example.lifetrack.databinding.FragmentBoardBinding;
 import com.example.lifetrack.utils.Constants;
