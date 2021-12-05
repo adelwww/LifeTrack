@@ -3,8 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/authFragment"
+    app:startDestination="@id/onBoardFragment"
     >
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.lifetrack.fragment.ProfileFragment"
+        android:label="Profile"
+        tools:layout="@layout/fragment_profile"/>
 
     <fragment
         android:id="@+id/homeFragment"

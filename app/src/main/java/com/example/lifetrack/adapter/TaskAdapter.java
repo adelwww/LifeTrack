@@ -19,6 +19,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
     ArrayList<TaskModel> list;
     ItemTaskBinding binding;
     Listener listener;
+    boolean isFillDay;
 
     public TaskAdapter(ArrayList<TaskModel> list, Listener listener) {
         this.list = list;
@@ -36,6 +37,10 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
     public void onBindViewHolder(@NonNull TaskViewHolder holder, int position) {
         holder.onFill(list.get(position));
     }
+    public void setFillDayTrue(boolean isFillDay){
+        this.isFillDay=isFillDay;
+    }
+
 
     @Override
     public int getItemCount() {
@@ -52,6 +57,10 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
             binding.taskTv.setText(model.getTask());
             binding.deadlineTv.setText(model.getDeadline());
             binding.repeatTv.setText(model.getRepeatCount());
+            if (isFillDay){
+                binding.dateList.setVisibility(View.VISIBLE);
+                binding.dateList.setText(model.getDeadline());
+            }
 
             itemView.setOnLongClickListener(new View.OnLongClickListener() {
                 @Override
@@ -71,8 +80,8 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
 
     public interface Listener {
         void itemLongClick(TaskModel taskModel);
+
         void itemClick(TaskModel model);
     }
 }
-
 

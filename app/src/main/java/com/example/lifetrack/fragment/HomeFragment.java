@@ -37,9 +37,19 @@ public class HomeFragment extends Fragment implements TaskAdapter.Listener {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         initRecycler();
+        initClickers();
+    }
+
+    private void initClickers() {
         binding.addFab.setOnClickListener(view1 -> {
             CreateTaskFragment createTaskFragment = new CreateTaskFragment();
             createTaskFragment.show(requireActivity().getSupportFragmentManager(), "ololo");
+        });
+        binding.toolbarInclude.personIm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(requireView()).navigate(R.id.profileFragment);
+            }
         });
     }
 
