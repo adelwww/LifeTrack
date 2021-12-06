@@ -39,15 +39,15 @@ public class BoardFragment extends Fragment {
             int position = getArguments().getInt(Constants.FRAGMENT_POSITION);
             switch (position){
                 case 0:
-                    binding.description.setText("Не теряйте время зря, вспоминая о том,что хотели сделать");
+                    binding.description.setText("Экономьте время и будьте продуктивны, создавая ежедневные задачи");
                     binding.boardImage.setAnimation("time.json");
                     break;
                 case 1:
-                    binding.description.setText("Это приложение поможет вам!Записывайте ваши дела,планы,идеи чтобы их не забыть");
+                    binding.description.setText("Получите это чувство удовлетворения, отмечая их как выполненные");
                     binding.boardImage.setAnimation("task.json");
                     break;
                 case 2:
-                    binding.description.setText("Надеюсь мы вам поможем!Желаем удачи");
+                    binding.description.setText("Достигайте своих целей быстрее с LifeTrack");
                     binding.boardImage.setAnimation("ideas.json");
                     break;
             }

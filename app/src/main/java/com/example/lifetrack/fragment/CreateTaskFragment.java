@@ -182,18 +182,6 @@ public class CreateTaskFragment extends BottomSheetDialogFragment implements Dat
 
     }
 
-//    private boolean checkDay() {
-//        SharedPreferences sharedPreferences = requireContext().getSharedPreferences("dayPreferences", Context.MODE_PRIVATE);
-//        Calendar calendar = Calendar.getInstance();
-//        String currentDay = String.valueOf(calendar.get(Calendar.DAY_OF_MONTH));
-//        String dayFromPreference = sharedPreferences.getString(Constants.CURRENT_DAY, "");
-//        if (currentDay.equals(dayFromPreference)) {
-//            sharedPreferences.edit().clear().apply();
-//            sharedPreferences.edit().putString(Constants.CURRENT_DAY, currentDay).apply();
-//            return true;
-//        }
-//        return false;
-//    }
 
     private void insertTask() {
         userTask = binding.taskEd.getText().toString();
